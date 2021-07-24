@@ -4,6 +4,8 @@ from json import JSONEncoder
 from flask import Flask, jsonify
 
 
+app = Flask(__name__)
+
 class User:
     def __init__(self, uid):
         with open('user_details.csv') as datafile:
@@ -24,10 +26,6 @@ class User:
 class Encoder(JSONEncoder):
     def default(self, o):
         return o.__dict__
-
-
-app = Flask(__name__)
-
 
 @app.route("/<string:username>", methods=['GET'])
 def user_details(username: str):
