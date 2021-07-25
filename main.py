@@ -18,8 +18,9 @@ def user_details(username: str):
     played = data[4]
     won = data[5]
     percent = data[6]
+    url = data[7]
 
-    processed = {'name': name, 'gamename':gamename, 'elo':elo, 'played':played, 'won':won, 'percent':percent}
+    processed = {'name': name, 'gamename':gamename, 'elo':elo, 'played':played, 'won':won, 'percent':percent, 'url':url}
     return jsonify(**processed)
 
 
